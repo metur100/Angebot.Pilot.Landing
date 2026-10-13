@@ -374,18 +374,11 @@ main:focus { outline: none; }
 .browser-url svg { width: 12px; height: 12px; }
 .browser-progress { position: absolute; left: 0; right: 0; bottom: -1px; height: 2px; }
 .browser-progress span { display: block; height: 100%; width: 100%; background: linear-gradient(90deg, var(--brand-500), var(--cyan-300)); transform-origin: 0 50%; transform: scaleX(var(--sp)); }
-.browser-view { position: relative; aspect-ratio: 16 / 10; background: var(--paper-2); overflow: hidden; }
-.browser-view img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top center; opacity: 0; transform: scale(1.06) translateY(14px); filter: blur(6px); transition: opacity .8s var(--ease-out), transform 1.2s var(--ease-out), filter .8s var(--ease-out); }
+.browser-view { position: relative; aspect-ratio: 4 / 3; background: #f6f7f9; overflow: hidden; }
+/* Real app crops at close to 1:1 so the text stays readable; centred on the app background */
+.browser-view img { position: absolute; inset: 0; margin: auto; width: min(calc(var(--w) * 1.08px), 92%); height: auto; max-height: 90%; object-fit: contain; opacity: 0; transform: scale(1.06) translateY(14px); filter: blur(6px); transition: opacity .8s var(--ease-out), transform 1.2s var(--ease-out), filter .8s var(--ease-out); }
 .browser-view img.is-active { opacity: 1; transform: none; filter: none; }
 .story-caption { margin: 14px 0 0; font-size: 13px; color: var(--ink-500); }
-/* Magnified detail of the active screenshot, readable at close to 1:1 */
-.story-zoom { position: absolute; right: -36px; bottom: 44px; width: min(calc(var(--zmax, 500) * 1px), 74%); height: 0; pointer-events: none; }
-.zoom { position: absolute; right: 0; bottom: 0; width: min(calc(var(--zw) * 1px), 100%); margin: 0; opacity: 0; transform: translate3d(26px, 22px, 0) scale(.9); transform-origin: 100% 100%; filter: blur(4px); transition: opacity .45s var(--ease-out), transform .7s var(--ease-out), filter .45s var(--ease-out); }
-.zoom.is-active { opacity: 1; transform: none; filter: none; transition-delay: .18s; }
-.zoom img { display: block; width: 100%; height: auto; border-radius: 14px; background: #fff; box-shadow: 0 40px 80px -24px rgba(10,16,48,.45), 0 12px 24px -10px rgba(10,16,48,.25), 0 0 0 1px rgba(15,22,64,.1); }
-.zoom figcaption { display: inline-flex; align-items: center; gap: 7px; margin: 0 0 10px; padding: 6px 12px 6px 10px; border-radius: 999px; background: var(--night-900); color: #fff; font: 600 12.5px/1.2 var(--font); letter-spacing: -.005em; box-shadow: 0 10px 24px -10px rgba(4,7,26,.6); }
-.zoom figcaption svg { width: 14px; height: 14px; color: var(--cyan-300); }
-@media (max-width: 1199px) { .story-zoom { right: -10px; } }
 
 /* ---------- Features / bento ---------- */
 .features { padding: clamp(90px, 12vw, 160px) 0; background: var(--paper); }

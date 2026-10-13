@@ -140,7 +140,6 @@
   // ---------- Story (pinned) ----------
   const storySteps = story ? $$('.story-step', story) : [];
   const storyShots = story ? $$('[data-shot]', story) : [];
-  const storyZooms = story ? $$('[data-zoom]', story) : [];
   let currentStep = -1;
   const storyPinned = () => !reduced && matchMedia('(min-width: 961px)').matches;
   function setStoryStep(i) {
@@ -148,14 +147,13 @@
     currentStep = i;
     storySteps.forEach((s, n) => s.classList.toggle('is-active', n === i));
     storyShots.forEach((img, n) => img.classList.toggle('is-active', n === i));
-    storyZooms.forEach((z, n) => z.classList.toggle('is-active', n === i));
   }
   if (story) {
     setStoryStep(0);
     // Preload story screenshots shortly before the section comes into view.
     if ('IntersectionObserver' in window) {
       const pre = new IntersectionObserver((es) => {
-        if (es.some((e) => e.isIntersecting)) { [...storyShots, ...$$('img', story)].forEach((img) => { img.loading = 'eager'; }); pre.disconnect(); }
+        if (es.some((e) => e.isIntersecting)) { $$('img', story).forEach((img) => { img.loading = 'eager'; }); pre.disconnect(); }
       }, { rootMargin: '600px 0px' });
       pre.observe(story);
     }
