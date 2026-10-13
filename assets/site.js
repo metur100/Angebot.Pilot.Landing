@@ -9,7 +9,30 @@
   const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
-  const eur = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' });
+  // Page language from <html lang> (German pages at the root, English pages in /en/).
+  const lang = /^en/i.test(doc.lang) ? 'en' : 'de';
+  const T = {
+    de: {
+      menuOpen: 'Menü öffnen', menuClose: 'Menü schließen',
+      draft: 'Entwurf', sent: 'Versendet', accepted: 'Angenommen',
+      pct: (n) => `${n} %`, taxLabel: (r) => (r === 0 ? 'USt. (§ 19 UStG)' : `USt. ${r} %`),
+      theme: { system: 'System', light: 'Hell', dark: 'Dunkel' },
+      themeLabel: (cur, next) => `Farbschema: ${cur}. Wechseln zu: ${next}`,
+    },
+    en: {
+      menuOpen: 'Open menu', menuClose: 'Close menu',
+      draft: 'Draft', sent: 'Sent', accepted: 'Accepted',
+      pct: (n) => `${n}%`, taxLabel: (r) => (r === 0 ? 'VAT (§ 19 UStG)' : `VAT ${r}%`),
+      theme: { system: 'System', light: 'Light', dark: 'Dark' },
+      themeLabel: (cur, next) => `Colour scheme: ${cur}. Switch to: ${next}`,
+    },
+  }[lang];
+  // Preferences shared with the web app on the same origin. Written only when the visitor actively chooses.
+  const store = {
+    get: (k) => { try { return localStorage.getItem(k); } catch { return null; } },
+    set: (k, v) => { try { localStorage.setItem(k, v); } catch { /* blocked storage: choice applies to this page only */ } },
+  };
+  const eur = new Intl.NumberFormat(lang === 'en' ? 'en-GB' : 'de-DE', { style: 'currency', currency: 'EUR' });
   const fmt = (n) => eur.format(n).replace(/ /g, ' ');
 
   // ---------- Page load ----------
@@ -52,6 +75,7 @@
       const probe = header.offsetHeight / 2;
       const overDark = darkSections.some((s) => { const r = s.getBoundingClientRect(); return r.top <= probe && r.bottom >= probe; });
       header.classList.toggle('is-dark', overDark);
+      setThemeColor(overDark ? '#060a1f' : doc.dataset.theme === 'dark' ? '#090e23' : '#ffffff');
     }
 
     if (reduced) return;
@@ -90,6 +114,39 @@
   addEventListener('scroll', onScroll, { passive: true });
   addEventListener('resize', onScroll);
 
+  // ---------- Browser UI colour (follows the section under the header and the theme) ----------
+  const themeMeta = $('meta[name="theme-color"]');
+  function setThemeColor(c) { if (themeMeta && themeMeta.content !== c) themeMeta.content = c; }
+
+  // ---------- Colour scheme: system → light → dark (localStorage "ap.theme", same key as the web app) ----------
+  const THEMES = ['system', 'light', 'dark'];
+  const darkQuery = matchMedia('(prefers-color-scheme: dark)');
+  const themeButtons = $$('[data-theme-toggle]');
+  let themePref = THEMES.includes(doc.dataset.themePref) ? doc.dataset.themePref : 'system';
+  function applyTheme() {
+    doc.dataset.themePref = themePref;
+    doc.dataset.theme = themePref === 'system' ? (darkQuery.matches ? 'dark' : 'light') : themePref;
+    const next = THEMES[(THEMES.indexOf(themePref) + 1) % THEMES.length];
+    const label = T.themeLabel(T.theme[themePref], T.theme[next]);
+    themeButtons.forEach((b) => { b.setAttribute('aria-label', label); b.title = label; });
+    onScroll();
+  }
+  themeButtons.forEach((b) => b.addEventListener('click', () => {
+    themePref = THEMES[(THEMES.indexOf(themePref) + 1) % THEMES.length];
+    store.set('ap.theme', themePref);
+    applyTheme();
+  }));
+  darkQuery.addEventListener('change', () => { if (themePref === 'system') applyTheme(); });
+  addEventListener('storage', (e) => {
+    if (e.key === 'ap.theme') { themePref = THEMES.includes(e.newValue) ? e.newValue : 'system'; applyTheme(); }
+  });
+  applyTheme();
+
+  // ---------- Language: remember the choice for the web app (localStorage "ap.locale") ----------
+  // Set when the visitor uses the DE/EN switch, and when they follow a link into the web app from a page in that language.
+  $$('[data-set-locale]').forEach((a) => a.addEventListener('click', () => store.set('ap.locale', a.dataset.setLocale)));
+  $$('a[href^="https://metur100.github.io/Angebot.Pilot.App/"]').forEach((a) => a.addEventListener('click', () => store.set('ap.locale', lang)));
+
   // ---------- Mobile navigation ----------
   const toggle = $('.nav-toggle');
   const nav = $('#site-nav');
@@ -97,7 +154,7 @@
     const setOpen = (open) => {
       doc.classList.toggle('nav-open', open);
       toggle.setAttribute('aria-expanded', String(open));
-      toggle.setAttribute('aria-label', open ? 'Menü schließen' : 'Menü öffnen');
+      toggle.setAttribute('aria-label', open ? T.menuClose : T.menuOpen);
     };
     toggle.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
     nav.addEventListener('click', (e) => { if (e.target.closest('a')) setOpen(false); });
@@ -125,7 +182,8 @@
   const wordsEl = $('[data-words]');
   let words = [];
   if (wordsEl) {
-    const accent = new Set(['Kalkulation,', 'Versand,', 'Nachfassen', 'Auftragsanlage.']);
+    // Accent words come from data-words="word|word" (exact tokens incl. punctuation).
+    const accent = new Set((wordsEl.dataset.words || '').split('|').filter(Boolean));
     const text = wordsEl.textContent.trim().split(/\s+/);
     wordsEl.innerHTML = text.map((w) => `<span class="w${accent.has(w) ? ' w-accent' : ''}">${w}</span>`).join(' ');
     words = $$('.w', wordsEl);
@@ -191,7 +249,7 @@
       rows.forEach((r) => r.classList.add('is-on'));
       counters.forEach((c) => setCount(c, parseFloat(c.dataset.count)));
       scene.classList.add('scene-sent', 'scene-phone', 'scene-accepted', 'scene-pdf', 'scene-job');
-      if (status) status.textContent = 'Angenommen';
+      if (status) status.textContent = T.accepted;
     }
 
     function play() {
@@ -201,7 +259,7 @@
       scene.classList.remove(...STATES);
       rows.forEach((r) => r.classList.remove('is-on'));
       counters.forEach((c) => setCount(c, 0));
-      if (status) status.textContent = 'Entwurf';
+      if (status) status.textContent = T.draft;
 
       let t = 900;
       rows.forEach((r) => { later(t, () => r.classList.add('is-on')); t += 520; });
@@ -209,7 +267,7 @@
       t += 1300;
       later(t, () => { scene.classList.add('scene-pdf'); });
       t += 900;
-      later(t, () => { scene.classList.add('scene-sent', 'scene-fly'); if (status) status.textContent = 'Versendet'; });
+      later(t, () => { scene.classList.add('scene-sent', 'scene-fly'); if (status) status.textContent = T.sent; });
       t += 700;
       later(t, () => scene.classList.add('scene-reminder'));
       t += 700;
@@ -217,7 +275,7 @@
       t += 1100;
       later(t, () => scene.classList.add('scene-press'));
       t += 260;
-      later(t, () => { scene.classList.remove('scene-press', 'scene-reminder'); scene.classList.add('scene-accepted'); if (status) status.textContent = 'Angenommen'; });
+      later(t, () => { scene.classList.remove('scene-press', 'scene-reminder'); scene.classList.add('scene-accepted'); if (status) status.textContent = T.accepted; });
       t += 900;
       later(t, () => scene.classList.add('scene-job'));
       t += 3600;
@@ -288,14 +346,14 @@
       const gross = round2(net + tax);
       out('qty').textContent = qty;
       out('price').textContent = fmt(price);
-      out('discount').textContent = `${discountPct} %`;
+      out('discount').textContent = T.pct(discountPct);
       const values = {
         before: fmt(before),
         discount: discount > 0 ? `−${fmt(discount)}` : fmt(0),
         net: fmt(net),
         tax: fmt(tax),
         gross: fmt(gross),
-        taxlabel: rate === 0 ? 'USt. (§ 19 UStG)' : `USt. ${rate} %`,
+        taxlabel: T.taxLabel(rate),
       };
       for (const [k, v] of Object.entries(values)) {
         const el = res(k);
