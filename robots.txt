@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://metur100.github.io/Angebot.Pilot.Landing/sitemap.xml
