@@ -1,11 +1,11 @@
 # AngebotPilot – Website
 
 Marketing and legal website for **AngebotPilot**, a German B2B SaaS for quotations (Angebote), customer
-management, follow-up reminders and simple job tracking. Plain static HTML/CSS with a few lines of vanilla JS,
-hosted on GitHub Pages. Language: German.
+management, follow-up reminders and simple job tracking. Plain static HTML/CSS with vanilla JS (no framework, no build step,
+no third-party requests), hosted on GitHub Pages. Language: German.
 
 - Live: https://metur100.github.io/Angebot.Pilot.Landing/
-- Web app: https://metur100.github.io/Angebot.Pilot.App/ (`#/register`, `#/login`)
+- Web app: https://metur100.github.io/Angebot.Pilot.App/ (`#/registrieren`, `#/login`)
 - API: https://angebotpilot.runasp.net
 
 By Medin Turkes · Certi Development.
@@ -14,7 +14,7 @@ By Medin Turkes · Certi Development.
 
 | File | Purpose |
 | --- | --- |
-| `index.html` | Landing page (hero, target groups, features, flow, steps, privacy, pricing, FAQ) |
+| `index.html` | Landing page (animated hero, trades marquee, statement, pinned product story, feature bento, mobile, security, pricing, FAQ, final CTA) |
 | `impressum.html` | Legal notice per § 5 DDG |
 | `datenschutz.html` | Privacy policy (website, web app, mobile apps) |
 | `agb.html` | Terms (B2B only, § 14 BGB) |
@@ -28,17 +28,30 @@ Also: `robots.txt`, `sitemap.xml`, `site.webmanifest`, `favicon.ico`, `.nojekyll
 
 ## Editing
 
-- Every page is complete HTML – there is no build step. **Header and footer are repeated in every page**;
-  when you change navigation or footer links, change them in all nine files.
-- Styles: `assets/style.css` (brand tokens mirror `packages/brand/tokens.css` of the app repo).
-- Icons: `assets/icons.svg` (SVG sprite, used as `<svg><use href="assets/icons.svg#i-check"/></svg>`).
-- Script: `assets/main.js` – only the mobile menu toggle. No cookies, no storage, no tracking.
-- Fonts: Inter (subset to Latin, WOFF2) in `assets/fonts/`, SIL Open Font License 1.1 (`OFL-Inter-LICENSE.txt`).
-  The site loads nothing from third parties.
+- Every page is complete HTML – there is no build step. **Header and footer are repeated in every page** between
+  `<!--HEADER-->…<!--/HEADER-->` and `<!--FOOTER-->…<!--/FOOTER-->` markers. `index.html` is the source of truth;
+  when you change navigation or footer links, copy the marked blocks into the seven legal pages (`404.html` has its
+  own minimal header with absolute paths). Legal pages set `aria-current="page"` on their own footer link.
+- Styles: `assets/site.css` – design tokens at the top (night/brand/cyan/violet palette, `--display` and `--serif`
+  fonts), then one block per landing section, then the legal-page layout (`.page-doc`, `.page-head`, `.doc-layout`,
+  `.toc`, `.doc`), responsive rules (1100 px nav, 1080/960/640 px layout) and `prefers-reduced-motion`/print rules.
+- Script: `assets/site.js` – one `requestAnimationFrame` scroll loop that writes CSS variables (`--scroll`, `--hp`
+  hero, `--sp` story, `--fp` final, `--pp` parallax); IntersectionObserver reveals (`data-reveal`,
+  `data-stagger`); header glass/dark switching over `[data-dark]` sections; mobile menu; the hero scene player
+  (timed class sequence, paused off-screen and in hidden tabs, pointer tilt only on fine pointers); the pinned
+  story (desktop ≥ 960 px only); the VAT calculator (integer cents, half-away-from-zero rounding like the product);
+  FAQ accordion; legal-page TOC highlighting. No cookies, no storage, no tracking.
+- Motion: everything respects `prefers-reduced-motion` (the inline head script adds `.reduced-motion`, which
+  disables the scene loop, pinning and parallax and shows final states).
+- Icons: `assets/icons.svg` (SVG sprite, still used by the `.notice` boxes on the legal pages).
+- Fonts (`assets/fonts/`, subset WOFF2, SIL Open Font License 1.1): Inter (body), Inter Display (headings) –
+  `OFL-Inter-LICENSE.txt`; Instrument Serif Italic (accent words) – `OFL-InstrumentSerif-LICENSE.txt`. The Impressum
+  names both licenses.
+- Screenshots: `assets/shots/` holds real screenshots of the web app (`web-*-1440.webp` / `-880.webp`) and the
+  Android app (`android-*-560.webp`), taken from the running product with demo data. Replace them when the UI
+  changes; keep file names so `srcset`s stay valid.
 - Images: `assets/icon.svg`, `assets/logo.svg` (brand), generated `favicon-*.png`, `icon-512.png`,
   `icon-maskable-512.png`, `apple-touch-icon.png`, `og-image.png` (1200×630).
-- Screenshots: the section marked `<!-- SCREENSHOTS: filled by lead with real screenshots -->` in `index.html`
-  currently shows a schematic flow. Replace it with real app screenshots once available.
 - Legal pages start with an HTML comment listing what must be reviewed. Visible placeholders are marked up as
   `<mark class="ph">[PLATZHALTER: …]</mark>` (orange, dashed). Search for `class="ph"` to find them all.
 - When content changes, update `Stand:` dates on the legal pages and `<lastmod>` in `sitemap.xml`.

@@ -15,7 +15,7 @@
 <meta name="description" content="Allgemeine Geschäftsbedingungen und Nutzungsbedingungen für AngebotPilot – ausschließlich für Unternehmer im Sinne von § 14 BGB.">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="author" content="Medin Turkes">
-<meta name="theme-color" content="#FFFFFF">
+<meta name="theme-color" content="#060A1F">
 <link rel="canonical" href="https://metur100.github.io/Angebot.Pilot.Landing/agb.html">
 <link rel="icon" href="favicon.ico" sizes="48x48">
 <link rel="icon" type="image/svg+xml" href="assets/icon.svg">
@@ -23,10 +23,10 @@
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
 <link rel="preload" href="assets/fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/fonts/Inter-Bold.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/style.css">
-<script>document.documentElement.classList.add('js')</script>
-<script defer src="assets/main.js"></script>
+<link rel="preload" href="assets/fonts/InterDisplay-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/site.css">
+<script>document.documentElement.classList.add('js');if(matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('reduced-motion')</script>
+<script defer src="assets/site.js"></script>
 
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="AngebotPilot">
@@ -63,25 +63,29 @@
 }
 </script>
 </head>
-<body>
+<body class="page-doc">
 <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
-<header class="site-header">
-  <div class="wrap">
-    <a class="brand" href="./"><img src="assets/icon.svg" alt="" width="32" height="32"><span class="wordmark">Angebot<b>Pilot</b></span></a>
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menü öffnen"><svg class="i-menu" aria-hidden="true" focusable="false"><use href="assets/icons.svg#i-menu"/></svg><svg class="i-close" aria-hidden="true" focusable="false"><use href="assets/icons.svg#i-close"/></svg></button>
-    <nav id="site-nav" class="site-nav" aria-label="Hauptnavigation">
+<div class="scroll-progress" aria-hidden="true"><span></span></div>
+<header class="site-header" data-header>
+  <div class="wrap header-inner">
+    <a class="brand" href="./" aria-label="AngebotPilot – Startseite">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="currentColor" class="brand-mark-bg"/><path d="M7.4 15.6 24.9 8.2l-5 16.5-4.2-5.4Z" fill="#fff"/><path d="m15.7 19.3 9.2-11.1-7.5 13.6Z" fill="#C7D2FE"/></svg>
+      <span class="wordmark">Angebot<span>Pilot</span></span>
+    </a>
+    <nav class="site-nav" id="site-nav" aria-label="Hauptnavigation">
       <ul class="nav-links">
-        <li><a href="./#funktionen">Funktionen</a></li>
         <li><a href="./#so-funktionierts">So funktioniert’s</a></li>
+        <li><a href="./#funktionen">Funktionen</a></li>
+        <li><a href="./#sicherheit">Sicherheit</a></li>
         <li><a href="./#preise">Preise</a></li>
         <li><a href="./#faq">FAQ</a></li>
-        <li><a href="support.html">Hilfe</a></li>
       </ul>
       <div class="nav-actions">
-        <a class="btn btn-ghost" href="https://metur100.github.io/Angebot.Pilot.App/#/login">Anmelden</a>
-        <a class="btn btn-primary" href="https://metur100.github.io/Angebot.Pilot.App/#/register">Kostenlos testen</a>
+        <a class="btn btn-quiet" href="https://metur100.github.io/Angebot.Pilot.App/#/login">Anmelden</a>
+        <a class="btn btn-primary" data-magnetic href="https://metur100.github.io/Angebot.Pilot.App/#/registrieren">Kostenlos testen<svg class="btn-arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
     </nav>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menü öffnen"><span></span><span></span></button>
   </div>
 </header>
 
@@ -229,18 +233,21 @@
   <div class="wrap">
     <div class="footer-grid">
       <div class="footer-about">
-        <a class="brand" href="./"><img src="assets/icon.svg" alt="" width="32" height="32"><span class="wordmark">Angebot<b>Pilot</b></span></a>
+        <a class="brand brand-dark" href="./" aria-label="AngebotPilot – Startseite">
+          <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="currentColor" class="brand-mark-bg"/><path d="M7.4 15.6 24.9 8.2l-5 16.5-4.2-5.4Z" fill="#fff"/><path d="m15.7 19.3 9.2-11.1-7.5 13.6Z" fill="#C7D2FE"/></svg>
+          <span class="wordmark">Angebot<span>Pilot</span></span>
+        </a>
         <p>Angebote, Kunden, Nachfassen und Aufträge – für Selbstständige und kleine Dienstleistungsbetriebe in Deutschland.</p>
-        <p>Ein Produkt von Medin&nbsp;Turkes · Certi&nbsp;Development</p>
+        <p class="footer-credit">Ein Produkt von Medin&nbsp;Turkes · Certi&nbsp;Development</p>
       </div>
       <nav aria-labelledby="f-produkt">
         <h2 id="f-produkt">Produkt</h2>
         <ul>
+          <li><a href="./#so-funktionierts">So funktioniert’s</a></li>
           <li><a href="./#funktionen">Funktionen</a></li>
           <li><a href="./#preise">Preise</a></li>
           <li><a href="./#faq">Häufige Fragen</a></li>
           <li><a href="https://metur100.github.io/Angebot.Pilot.App/#/login">Web-App öffnen</a></li>
-          <li><a href="https://metur100.github.io/Angebot.Pilot.App/#/register">Kostenlos registrieren</a></li>
         </ul>
       </nav>
       <nav aria-labelledby="f-recht">
@@ -256,12 +263,13 @@
       <nav aria-labelledby="f-hilfe">
         <h2 id="f-hilfe">Hilfe</h2>
         <ul>
-          <li><a href="support.html">Hilfe & Kontakt</a></li>
+          <li><a href="support.html">Hilfe &amp; Kontakt</a></li>
           <li><a href="konto-loeschen.html">Konto löschen</a></li>
           <li><a href="mailto:certidevelopment@gmail.com">certidevelopment@gmail.com</a></li>
         </ul>
       </nav>
     </div>
+    <p class="footer-giant" aria-hidden="true">AngebotPilot</p>
     <div class="footer-bottom">
       <p>© 2026 Medin Turkes · Certi Development</p>
       <p>Diese Website verwendet keine Cookies und keine Analyse-Tools.</p>
