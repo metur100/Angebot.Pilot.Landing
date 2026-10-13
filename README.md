@@ -49,10 +49,10 @@ Also: `robots.txt`, `sitemap.xml`, `site.webmanifest`, `favicon.ico`, `.nojekyll
   names both licenses.
 - Screenshots: `assets/shots/` holds real screenshots of the web app (`web-quotation-pdf-880.webp`)
   and the Android app (`android-*-560.webp`), taken from the running product with demo data. The "So funktioniert's"
-  section uses 2× crops of the real app so the text stays readable: `story-zoom-*.webp` (shown inside the
-  desktop browser frame, cropped from the 1440/1280 px layout) and `story-mobile-*.webp` (shown in the step cards on
-  phones, cropped from the app's own 400 px layout). Replace them when the UI changes; keep file names so the
-  markup stays valid.
+  section has six steps (quotation → PDF → follow-ups → online acceptance → dashboard → invoice). On desktop the
+  browser frame shows whole app screens, `story-screen-*.webp` (captured at 1180×738 px, 1280×800 px for the editor,
+  at 2× pixel density, stored 1840 px wide). On phones the step cards show `story-mobile-*.webp`, focused crops from
+  the app's own 400 px layout. Replace them when the UI changes; keep file names so the markup stays valid.
 - Images: `assets/icon.svg`, `assets/logo.svg` (brand), generated `favicon-*.png`, `icon-512.png`,
   `icon-maskable-512.png`, `apple-touch-icon.png`, `og-image.png` (1200×630).
 - Legal pages start with an HTML comment listing what must be reviewed. Visible placeholders are marked up as
