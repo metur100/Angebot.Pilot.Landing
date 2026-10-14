@@ -1,4 +1,4 @@
-/* AngebotPilot landing – motion & interaction (vanilla, no dependencies).
+/* AngebotPilot landing â€“ motion & interaction (vanilla, no dependencies).
    Everything degrades gracefully: without JS all content is visible; with reduced motion
    all scroll-linked and looping animations are disabled and final states are shown. */
 (() => {
@@ -13,16 +13,16 @@
   const lang = /^en/i.test(doc.lang) ? 'en' : 'de';
   const T = {
     de: {
-      menuOpen: 'Menü öffnen', menuClose: 'Menü schließen',
+      menuOpen: 'MenÃ¼ Ã¶ffnen', menuClose: 'MenÃ¼ schlieÃŸen',
       draft: 'Entwurf', sent: 'Versendet', accepted: 'Angenommen',
-      pct: (n) => `${n} %`, taxLabel: (r) => (r === 0 ? 'USt. (§ 19 UStG)' : `USt. ${r} %`),
+      pct: (n) => `${n} %`, taxLabel: (r) => (r === 0 ? 'USt. (Â§ 19 UStG)' : `USt. ${r} %`),
       theme: { system: 'System', light: 'Hell', dark: 'Dunkel' },
       themeLabel: (cur, next) => `Farbschema: ${cur}. Wechseln zu: ${next}`,
     },
     en: {
       menuOpen: 'Open menu', menuClose: 'Close menu',
       draft: 'Draft', sent: 'Sent', accepted: 'Accepted',
-      pct: (n) => `${n}%`, taxLabel: (r) => (r === 0 ? 'VAT (§ 19 UStG)' : `VAT ${r}%`),
+      pct: (n) => `${n}%`, taxLabel: (r) => (r === 0 ? 'VAT (Â§ 19 UStG)' : `VAT ${r}%`),
       theme: { system: 'System', light: 'Light', dark: 'Dark' },
       themeLabel: (cur, next) => `Colour scheme: ${cur}. Switch to: ${next}`,
     },
@@ -33,7 +33,7 @@
     set: (k, v) => { try { localStorage.setItem(k, v); } catch { /* blocked storage: choice applies to this page only */ } },
   };
   const eur = new Intl.NumberFormat(lang === 'en' ? 'en-GB' : 'de-DE', { style: 'currency', currency: 'EUR' });
-  const fmt = (n) => eur.format(n).replace(/ /g, ' ');
+  const fmt = (n) => eur.format(n).replace(/Â /g, 'Â ');
 
   // ---------- Page load ----------
   requestAnimationFrame(() => requestAnimationFrame(() => doc.classList.add('is-loaded')));
@@ -118,7 +118,7 @@
   const themeMeta = $('meta[name="theme-color"]');
   function setThemeColor(c) { if (themeMeta && themeMeta.content !== c) themeMeta.content = c; }
 
-  // ---------- Colour scheme: system → light → dark (localStorage "ap.theme", same key as the web app) ----------
+  // ---------- Colour scheme: system â†’ light â†’ dark (localStorage "ap.theme", same key as the web app) ----------
   const THEMES = ['system', 'light', 'dark'];
   const darkQuery = matchMedia('(prefers-color-scheme: dark)');
   const themeButtons = $$('[data-theme-toggle]');
@@ -145,7 +145,7 @@
   // ---------- Language: remember the choice for the web app (localStorage "ap.locale") ----------
   // Set when the visitor uses the DE/EN switch, and when they follow a link into the web app from a page in that language.
   $$('[data-set-locale]').forEach((a) => a.addEventListener('click', () => store.set('ap.locale', a.dataset.setLocale)));
-  $$('a[href^="https://metur100.github.io/Angebot.Pilot.App/"]').forEach((a) => a.addEventListener('click', () => store.set('ap.locale', lang)));
+  $$('a[href^="https://angebot-app.gentlegroup.de/"]').forEach((a) => a.addEventListener('click', () => store.set('ap.locale', lang)));
 
   // ---------- Mobile navigation ----------
   const toggle = $('.nav-toggle');
@@ -349,7 +349,7 @@
       out('discount').textContent = T.pct(discountPct);
       const values = {
         before: fmt(before),
-        discount: discount > 0 ? `−${fmt(discount)}` : fmt(0),
+        discount: discount > 0 ? `âˆ’${fmt(discount)}` : fmt(0),
         net: fmt(net),
         tax: fmt(tax),
         gross: fmt(gross),
