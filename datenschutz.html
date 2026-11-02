@@ -2,15 +2,15 @@
 <html lang="de">
 <!--
   RECHTLICHE PRÜFUNG VOR LAUNCH – Datenschutzerklärung
-  1. Anschrift des Verantwortlichen eintragen (Platzhalter).
-  2. MonsterASP.NET: vollständigen Firmennamen, Anschrift und Serverstandort verifizieren; AVV (Art. 28 DSGVO) mit dem Anbieter abschließen; Speicherdauer der Server-Logs beim Anbieter erfragen.
-  3. E-Mail-Dienstleister auswählen und eintragen (Name, Sitz, Drittlandbezug, AVV); Öffnungs-/Klick-Tracking beim Dienstleister deaktivieren.
-  4. Cloudflare R2: Abschnitt nur belassen, wenn Objektspeicher aktiviert ist; Jurisdiktion (EU) bestätigen.
-  5. Support-Postfach (Gmail): Einsatz von Google prüfen bzw. eintragen lassen; ggf. geschäftliches Postfach mit AVV nutzen.
-  6. Datenschutzbeauftragter: Pflicht nach § 38 BDSG prüfen (i. d. R. erst ab 20 Personen mit ständiger Datenverarbeitung).
-  7. Speicherfristen (E-Mail-Versandprotokolle, Audit-Log, Backups) final festlegen.
-  8. Zahlungsanbieter ergänzen, sobald Online-Zahlung aktiviert wird; ebenso Push-Benachrichtigungen, falls eingeführt.
-  9. Abgleich mit dem tatsächlichen Produktivbetrieb (Konfiguration, Hosting-Region) vor Veröffentlichung.
+  1. Anschrift des Verantwortlichen eintragen ([PLATZHALTER: …]).
+  2. Anbieterangaben geprüft am 02.11.2026 (Quellen): MonsterASP.NET s.r.o. – https://www.monsterasp.net/Terms/ (Ziff. 8.2 AVV, Backups 21 Tage
+     nur bei kostenpflichtigen Tarifen, EU-Rechenzentren) und https://www.monsterasp.net/Privacy/ (Server-Logs 6 Monate, Sicherheits-Logs 12 Monate,
+     Rechenzentren Hetzner in Deutschland/Finnland); netcup GmbH – https://www.netcup.com/de/kontakt/impressum.
+  3. MonsterASP: Der AVV nach Art. 28 DSGVO gilt laut Ziff. 8.2 der Terms erst mit Bestellung eines kostenpflichtigen Tarifs; der
+     Free-Tarif hat keine Backups und darf nicht kommerziell genutzt werden → vor dem Produktivbetrieb auf Premium wechseln.
+  4. netcup: AVV im Customer Control Panel abschließen (falls noch nicht geschehen).
+  5. Speicher: Storage:Provider=Local (Dateien liegen bei MonsterASP); Cloudflare R2 ist nicht aktiv – bei Aktivierung Abschnitt 9 ergänzen.
+  6. Zahlungsanbieter bzw. Push-Benachrichtigungen ergänzen, sobald eingeführt.
 -->
 <head>
 <meta charset="utf-8">
@@ -111,7 +111,7 @@
   <div class="wrap">
     <nav class="breadcrumb" aria-label="Brotkrümelnavigation"><ol><li><a href="./">Startseite</a></li><li aria-current="page">Datenschutzerklärung</li></ol></nav>
     <h1>Datenschutzerklärung</h1>
-    <p class="meta">für die Website, die Web-App und die mobilen Apps von AngebotPilot · Stand: 13.10.2026</p>
+    <p class="meta">für die Website, die Web-App und die mobilen Apps von AngebotPilot · Stand: 02.11.2026</p>
   </div>
 </div>
 <div class="wrap doc-layout">
@@ -153,7 +153,7 @@
       Deutschland<br>
       E-Mail: <a href="mailto:certidevelopment@gmail.com">certidevelopment@gmail.com</a>
     </address>
-    <p>Ein Datenschutzbeauftragter ist nicht benannt, da hierzu nach unserer Einschätzung keine gesetzliche Pflicht besteht (Art.&nbsp;37 DSGVO, §&nbsp;38 BDSG). <mark class="ph">[zu prüfen]</mark> Bei Fragen zum Datenschutz wenden Sie sich bitte an die oben genannte E-Mail-Adresse.</p>
+    <p>Ein Datenschutzbeauftragter ist nicht benannt, da hierzu nach unserer Einschätzung keine gesetzliche Pflicht besteht (Art.&nbsp;37 DSGVO, §&nbsp;38 BDSG): Mit der Verarbeitung personenbezogener Daten sind bei uns weniger als 20 Personen ständig beschäftigt, und unsere Kerntätigkeit besteht nicht in einer umfangreichen Überwachung oder in der Verarbeitung besonderer Kategorien personenbezogener Daten. Bei Fragen zum Datenschutz wenden Sie sich bitte an die oben genannte E-Mail-Adresse.</p>
 
     <h2 id="rollen">3. Verantwortlicher oder Auftragsverarbeiter?</h2>
     <p>Bei AngebotPilot gibt es zwei Rollen:</p>
@@ -204,10 +204,10 @@
     <p>In der App informieren wir Sie über Ereignisse wie die Annahme oder Ablehnung eines Angebots. Kunden, Angebote, Aufträge und Rechnungen können Sie jederzeit als CSV-Datei exportieren.</p>
 
     <h3>5.8 Server-Protokolle beim Hosting-Anbieter</h3>
-    <p>Beim Zugriff auf unsere Anwendungsserver (API) verarbeitet unser Hosting-Anbieter technisch notwendige Verbindungsdaten, insbesondere IP-Adresse, Zeitpunkt, aufgerufene Adresse, Statuscode und Browser- bzw. App-Kennung. Diese Daten werden für den sicheren Betrieb, zur Fehleranalyse und zur Abwehr von Angriffen benötigt (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;f DSGVO) und nur kurzfristig gespeichert: <mark class="ph">[PLATZHALTER: Speicherdauer laut Hosting-Anbieter]</mark>. In unserer Anwendungsdatenbank speichern wir keine IP-Adressen.</p>
+    <p>Beim Zugriff auf unsere Anwendungsserver (API) verarbeitet unser Hosting-Anbieter technisch notwendige Verbindungsdaten, insbesondere IP-Adresse, Zeitpunkt, aufgerufene Adresse, Statuscode und Browser- bzw. App-Kennung. Diese Daten werden für den sicheren Betrieb, zur Fehleranalyse und zur Abwehr von Angriffen benötigt (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;f DSGVO) und vom Hosting-Anbieter nach dessen <a href="https://www.monsterasp.net/Privacy/">Datenschutzerklärung</a> höchstens 6&nbsp;Monate gespeichert, Sicherheits- und Angriffserkennungsprotokolle höchstens 12&nbsp;Monate. In unserer Anwendungsdatenbank speichern wir keine IP-Adressen.</p>
 
     <h3>5.9 Zahlungsabwicklung</h3>
-    <p>Während der Pilotphase erfolgt keine Abrechnung, und es wird kein Zahlungsdienstleister eingesetzt. <mark class="ph">[wird ergänzt, sobald Online-Zahlung aktiviert ist]</mark></p>
+    <p>Während der Pilotphase erfolgt keine Abrechnung, und es wird kein Zahlungsdienstleister eingesetzt. Bevor wir eine Online-Zahlung einführen, ergänzen wir diese Erklärung.</p>
 
     <h2 id="kundenseite">6. Kundenlink und Online-Annahme</h2>
     <p>Wenn ein Nutzer ein Angebot versendet, erhält der Empfänger einen persönlichen Link zur Online-Ansicht. Dabei verarbeiten wir als Auftragsverarbeiter des jeweiligen Betriebs:</p>
@@ -227,7 +227,7 @@
       <li><strong>Keine Werbung, keine Analyse:</strong> Die Apps enthalten keine Werbe- oder Analyse-SDKs und nutzen keine Werbe-ID.</li>
       <li><strong>App-Stores:</strong> Beim Herunterladen über Google Play (Google Ireland Limited) oder den App Store (Apple Distribution International Ltd.) verarbeiten diese Anbieter Daten in eigener Verantwortung, etwa Ihre Konto- und Gerätedaten. Darauf haben wir keinen Einfluss.</li>
     </ul>
-    <p><mark class="ph">[zu ergänzen, falls Push-Benachrichtigungen oder weitere Berechtigungen eingeführt werden]</mark></p>
+    <p>Die Apps verwenden keine Push-Benachrichtigungen und fragen außer der Kamera keine Berechtigungen an, die Ihrer Freigabe bedürfen; für die Verbindung zum Server nutzen sie lediglich die Internet- und Netzwerkstatus-Berechtigung (Android).</p>
 
     <h2 id="kontakt">8. Kontakt und Support</h2>
     <p>Wenn Sie uns per E-Mail kontaktieren, verarbeiten wir Ihre E-Mail-Adresse, Ihren Namen und den Inhalt Ihrer Nachricht, um Ihre Anfrage zu beantworten. Rechtsgrundlage ist Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;b DSGVO, sofern Ihre Anfrage mit einem Vertrag zusammenhängt, ansonsten unser berechtigtes Interesse an der Beantwortung (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;f DSGVO). Unser Support-Postfach wird bei Google (Gmail) betrieben, siehe Abschnitt 9.</p>
@@ -238,30 +238,29 @@
       <table class="stack">
         <thead><tr><th scope="col">Dienstleister</th><th scope="col">Zweck</th><th scope="col">Ort</th></tr></thead>
         <tbody>
-          <tr><th scope="row">MonsterASP.NET <mark class="ph">[PLATZHALTER: vollständiger Firmenname und Anschrift]</mark></th><td data-label="Zweck">Hosting der Anwendungsserver (API) und der SQL-Server-Datenbank, Backups</td><td data-label="Ort">Deutschland/EU <mark class="ph">[zu prüfen: AVV mit Anbieter abschließen]</mark></td></tr>
+          <tr><th scope="row">MonsterASP.NET s.r.o., Jičínská 226/17, 130 00 Prag, Tschechien</th><td data-label="Zweck">Hosting der Anwendungsserver (API), der SQL-Server-Datenbank und des Dateispeichers (Logos, PDF-Dokumente), Backups</td><td data-label="Ort">EU (Rechenzentren in Deutschland bzw. Finnland); Auftragsverarbeitung nach Art.&nbsp;28 DSGVO gemäß den <a href="https://www.monsterasp.net/Terms/">Nutzungsbedingungen des Anbieters</a> (Ziff.&nbsp;8.2)</td></tr>
           <tr><th scope="row">GitHub, Inc.</th><td data-label="Zweck">Bereitstellung dieser Website und der Dateien der Web-App (GitHub Pages)</td><td data-label="Ort">USA – EU-US Data Privacy Framework</td></tr>
-          <tr><th scope="row">netcup GmbH, Karlsruhe (E-Mail-Hosting/Mailserver)</th><td data-label="Zweck">Versand von System-E-Mails, Angeboten und Erinnerungen</td><td data-label="Ort">Deutschland <mark class="ph">[zu prüfen: AVV mit netcup abschließen]</mark></td></tr>
-          <tr><th scope="row">Cloudflare, Inc. (R2) <mark class="ph">[nur falls aktiviert]</mark></th><td data-label="Zweck">Privater Objektspeicher für Logos und PDF-Dokumente</td><td data-label="Ort"><mark class="ph">[Speicherort ergänzen, z. B. EU-Jurisdiktion]</mark> – EU-US Data Privacy Framework</td></tr>
+          <tr><th scope="row">netcup GmbH, Emmy-Noether-Straße 10, 76131 Karlsruhe (E-Mail-Hosting/Mailserver)</th><td data-label="Zweck">Versand von System-E-Mails, Angeboten und Erinnerungen</td><td data-label="Ort">Deutschland</td></tr>
           <tr><th scope="row">Google Ireland Limited (Gmail)</th><td data-label="Zweck">Support-Postfach für E-Mail-Anfragen</td><td data-label="Ort">EU/USA – EU-US Data Privacy Framework</td></tr>
           <tr><th scope="row">Google Ireland Limited (Google Play), Apple Distribution International Ltd. (App Store)</th><td data-label="Zweck">Vertrieb der mobilen Apps – in eigener Verantwortung der Anbieter</td><td data-label="Ort">Irland, ggf. USA</td></tr>
-          <tr><th scope="row">Zahlungsdienstleister</th><td data-label="Zweck">Derzeit keiner</td><td data-label="Ort"><mark class="ph">[wird ergänzt, sobald Online-Zahlung aktiviert ist]</mark></td></tr>
+          <tr><th scope="row">Zahlungsdienstleister</th><td data-label="Zweck">Derzeit keiner</td><td data-label="Ort">–</td></tr>
         </tbody>
       </table>
     </div>
     <p>Darüber hinaus geben wir Daten nur weiter, wenn wir gesetzlich dazu verpflichtet sind (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;c DSGVO), etwa an Behörden auf Anordnung.</p>
 
     <h2 id="drittland">10. Übermittlung in Drittländer</h2>
-    <p>Soweit Dienstleister ihren Sitz in den USA haben oder Daten dorthin übermitteln können (GitHub, Google, ggf. Cloudflare), erfolgt dies auf Grundlage des Angemessenheitsbeschlusses der EU-Kommission zum EU-US Data Privacy Framework (Art.&nbsp;45 DSGVO), sofern der Anbieter zertifiziert ist, und ergänzend auf Grundlage von EU-Standardvertragsklauseln (Art.&nbsp;46 Abs.&nbsp;2 lit.&nbsp;c DSGVO).</p>
+    <p>Soweit Dienstleister ihren Sitz in den USA haben oder Daten dorthin übermitteln können (GitHub, Google), erfolgt dies auf Grundlage des Angemessenheitsbeschlusses der EU-Kommission zum EU-US Data Privacy Framework (Art.&nbsp;45 DSGVO), sofern der Anbieter zertifiziert ist, und ergänzend auf Grundlage von EU-Standardvertragsklauseln (Art.&nbsp;46 Abs.&nbsp;2 lit.&nbsp;c DSGVO).</p>
 
     <h2 id="speicherdauer">11. Speicherdauer</h2>
     <p>Wir speichern personenbezogene Daten nur so lange, wie es für den jeweiligen Zweck erforderlich ist oder gesetzliche Pflichten es verlangen:</p>
     <ul>
       <li><strong>Benutzerkonto:</strong> bis zur Löschung des Kontos. Danach bleibt lediglich ein Protokolleintrag über die Löschung ohne Namen und E-Mail-Adresse.</li>
-      <li><strong>Firmendaten, Kunden, Angebote, Aufträge, Rechnungen, Versandprotokolle:</strong> bis Sie sie löschen oder Ihr Konto bzw. Ihre Firma gelöscht wird. <mark class="ph">[zu prüfen: ggf. kürzere Frist für E-Mail-Versandprotokolle festlegen]</mark></li>
+      <li><strong>Firmendaten, Kunden, Angebote, Aufträge, Rechnungen, Versandprotokolle:</strong> bis Sie sie löschen oder Ihr Konto bzw. Ihre Firma gelöscht wird. Den Inhalt einer E-Mail löschen wir bereits nach Abschluss des Versands (siehe Abschnitt 5.5).</li>
       <li><strong>Aufbewahrungspflichten:</strong> Gesetzliche Aufbewahrungspflichten können erfordern, dass Angebote und zugehörige Unterlagen über längere Zeit aufbewahrt werden – etwa nach §&nbsp;257 HGB und §&nbsp;147 AO sechs Jahre für Handels- und Geschäftsbriefe sowie bis zu acht bzw. zehn Jahre für buchungsrelevante Unterlagen. Ob diese Pflichten für Sie gelten, beurteilen Sie als Nutzer. Löschen Sie in AngebotPilot einen Kunden, zu dem bereits Angebote bestehen, werden dessen personenbezogene Daten deshalb anonymisiert statt gelöscht, damit die Angebote und Rechnungen erhalten bleiben. Gestellte Rechnungen sind festgeschrieben: Sie können in AngebotPilot nicht gelöscht, sondern nur durch eine Stornorechnung korrigiert werden.</li>
       <li><strong>Refresh-Tokens:</strong> bis zum Ablauf (höchstens 30 Tage) bzw. Widerruf; Einmal-Links für E-Mail-Bestätigung und Passwort-Zurücksetzen bis zum Ablauf bzw. zur Verwendung.</li>
-      <li><strong>Server-Protokolle:</strong> gemäß den Fristen des Hosting-Anbieters (siehe Abschnitt 5.8).</li>
-      <li><strong>Datensicherungen:</strong> Gelöschte Daten können bis zum turnusmäßigen Überschreiben in Backups des Hosting-Anbieters enthalten sein: <mark class="ph">[PLATZHALTER: Aufbewahrungsdauer der Backups]</mark>.</li>
+      <li><strong>Server-Protokolle:</strong> beim Hosting-Anbieter höchstens 6&nbsp;Monate, Sicherheitsprotokolle höchstens 12&nbsp;Monate (siehe Abschnitt 5.8).</li>
+      <li><strong>Datensicherungen:</strong> Gelöschte Daten können bis zum turnusmäßigen Überschreiben in Backups des Hosting-Anbieters enthalten sein; diese werden täglich erstellt und nach 21&nbsp;Tagen gelöscht (<a href="https://www.monsterasp.net/Terms/">Nutzungsbedingungen des Anbieters</a>).</li>
       <li><strong>Support-Anfragen:</strong> bis zur abschließenden Bearbeitung, sofern keine Aufbewahrungspflicht besteht.</li>
     </ul>
 
@@ -298,7 +297,7 @@
     <p>Die Angabe von Name, E-Mail-Adresse und Passwort ist für die Registrierung erforderlich. Ohne diese Daten können wir Ihnen kein Konto bereitstellen. Weitere Angaben sind freiwillig, aber teils für die Erstellung ordnungsgemäßer Angebote notwendig.</p>
     <h3>Änderungen dieser Datenschutzerklärung</h3>
     <p>Wir passen diese Datenschutzerklärung an, wenn sich AngebotPilot oder die Rechtslage ändert. Es gilt die jeweils hier veröffentlichte Fassung. Über wesentliche Änderungen informieren wir registrierte Nutzer zusätzlich per E-Mail oder in der App.</p>
-    <p class="muted-sm">Stand: 13.10.2026</p>
+    <p class="muted-sm">Stand: 02.11.2026</p>
   </article>
 </div>
 </main>

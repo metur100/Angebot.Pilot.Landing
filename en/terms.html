@@ -8,7 +8,7 @@
   2. Fill in the provider's address and the place of jurisdiction (town).
   3. Define payment terms, billing period and notice periods before online payment is activated.
   4. Finalise the deletion period after the end of the contract (§ 13) and align it with the technical implementation.
-  5. Check the incorporation mechanism (checkbox at registration) and the conclusion of the DPA.
+  5. Incorporation: mandatory checkbox at registration (web and app; API validation AcceptTerms) – implemented.
 -->
 <head>
 <meta charset="utf-8">
@@ -109,7 +109,7 @@
   <div class="wrap">
     <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="./">Home</a></li><li aria-current="page">Terms and conditions</li></ol></nav>
     <h1>General Terms and Conditions</h1>
-    <p class="meta">Terms of use for AngebotPilot – for businesses only · Last updated: 12 October 2026</p>
+    <p class="meta">Terms of use for AngebotPilot – for businesses only · Last updated: 2 November 2026</p>
   </div>
 </div>
 <div class="wrap doc-layout">
@@ -138,7 +138,7 @@
 
     <h2 id="scope">§&nbsp;1 Scope</h2>
     <ol>
-      <li>These General Terms and Conditions (terms) apply to the use of the “AngebotPilot” software (web app and mobile apps) and all related services. The provider is Medin Turkes · Certi Development, <mark class="ph">[PLACEHOLDER: street and house number, postcode and town]</mark>, Germany (hereinafter the “provider” or “we”).</li>
+      <li>These General Terms and Conditions (terms) apply to the use of the “AngebotPilot” software (web app and mobile apps) and all related services. The provider is Medin Turkes · Certi Development, <mark class="ph">[PLATZHALTER: street and house number, postcode and town]</mark>, Germany (hereinafter the “provider” or “we”).</li>
       <li>AngebotPilot is aimed exclusively at entrepreneurs within the meaning of §&nbsp;14 BGB (German Civil Code: businesses and self-employed professionals), legal entities under public law and special funds under public law (hereinafter “users”). By registering, the user confirms that they use AngebotPilot for their commercial or self-employed professional activity. Consumers within the meaning of §&nbsp;13 BGB are excluded from use.</li>
       <li>Deviating, conflicting or supplementary terms and conditions of the user do not become part of the contract unless we expressly agree to their validity in text form (e.g. by e-mail).</li>
     </ol>
@@ -169,7 +169,7 @@
     <ol>
       <li>The plan prices stated on the website are provisional. All prices are net, plus VAT at the applicable statutory rate.</li>
       <li>Paid plans only take effect once online payment has been introduced and only after an express booking by the user. We will inform registered users in good time beforehand.</li>
-      <li>Payment terms, billing period and payment methods: <mark class="ph">[PLACEHOLDER: to be added before online payment is activated]</mark></li>
+      <li>We will inform the user of the payment terms, billing period and payment methods before a paid plan is booked; they only apply if the user accepts them when booking. No paid plan is currently offered.</li>
     </ol>
 
     <h2 id="availability">§&nbsp;6 Availability</h2>
@@ -204,7 +204,7 @@
     </ol>
 
     <h2 id="data-protection">§&nbsp;10 Data protection</h2>
-    <p>Information on the processing of personal data can be found in our <a href="privacy.html">privacy policy</a>. Insofar as we process personal data on behalf of the user, the <a href="dpa.html">data processing agreement (DPA)</a>, which is agreed upon conclusion of this contract, applies in addition. <mark class="ph">[to be checked: incorporation of the DPA at registration]</mark></p>
+    <p>Information on the processing of personal data can be found in our <a href="privacy.html">privacy policy</a>. Insofar as we process personal data on behalf of the user, the <a href="dpa.html">data processing agreement (DPA)</a>, which is agreed upon conclusion of this contract, applies in addition. The user expressly accepts these terms, and thus the DPA, when registering; registration is not possible without this acceptance.</p>
 
     <h2 id="liability">§&nbsp;11 Liability</h2>
     <p class="review">Note: have the liability provisions legally reviewed before publication.</p>
@@ -220,7 +220,7 @@
     <h2 id="term-termination">§&nbsp;12 Term and termination</h2>
     <ol>
       <li>The contract runs for an indefinite period. During the trial and pilot phase, the user can end it at any time without notice, in particular by deleting their account in the app.</li>
-      <li>Terms and notice periods of paid plans: <mark class="ph">[PLACEHOLDER: e.g. monthly term, termination effective at the end of the billing period – to be defined before online payment is activated]</mark></li>
+      <li>Terms and notice periods of paid plans are communicated to the user before booking and only apply if the user accepts them when booking.</li>
       <li>We may end free use by giving four weeks’ notice in text form, for example if the pilot operation is discontinued.</li>
       <li>The right of both parties to terminate for good cause (extraordinary termination) remains unaffected. Good cause exists for us in particular in the event of serious or repeated breaches of §&nbsp;7.</li>
     </ol>
@@ -229,7 +229,7 @@
     <ol>
       <li>The user can export their customers, quotations and jobs as a CSV file at any time. Before termination or deletion of the account, the user should export all data they still need or are required to retain.</li>
       <li>If the user deletes their account and is the only active member of their company, the company’s data is deleted. If the company has other members, the company data is retained for them. Details are described on the <a href="delete-account.html">Delete account</a> page.</li>
-      <li>After any other termination of the contract, we delete the user’s data within <mark class="ph">[PLACEHOLDER: period, e.g. 30 days]</mark>, unless statutory retention obligations prevent this. The <a href="dpa.html">DPA</a> applies to data processed on the user’s behalf.</li>
+      <li>After any other termination of the contract, we delete the user’s data within <mark class="ph">[PLATZHALTER: period, e.g. 30 days]</mark>, unless statutory retention obligations prevent this. The <a href="dpa.html">DPA</a> applies to data processed on the user’s behalf.</li>
     </ol>
 
     <h2 id="changes">§&nbsp;14 Changes to these terms</h2>
@@ -238,10 +238,10 @@
     <h2 id="final-provisions">§&nbsp;15 Final provisions</h2>
     <ol>
       <li>The law of the Federal Republic of Germany applies, excluding the UN Convention on Contracts for the International Sale of Goods (CISG).</li>
-      <li>If the user is a merchant (Kaufmann) within the meaning of the HGB, a legal entity under public law or a special fund under public law, the exclusive place of jurisdiction for all disputes arising from this contract is <mark class="ph">[PLACEHOLDER: town of the registered place of business]</mark>.</li>
+      <li>If the user is a merchant (Kaufmann) within the meaning of the HGB, a legal entity under public law or a special fund under public law, the exclusive place of jurisdiction for all disputes arising from this contract is <mark class="ph">[PLATZHALTER: town of the registered place of business]</mark>.</li>
       <li>Should individual provisions of these terms be or become invalid, the validity of the remaining provisions remains unaffected.</li>
     </ol>
-    <p class="muted-sm">Last updated: 12 October 2026</p>
+    <p class="muted-sm">Last updated: 2 November 2026</p>
   </article>
 </div>
 </main>

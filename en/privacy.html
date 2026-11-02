@@ -3,16 +3,7 @@
 <!--
   CONVENIENCE TRANSLATION of ../datenschutz.html – the German version is legally binding.
   Keep this file in sync with the German original (same sections, same placeholders, same "Last updated" date).
-  LEGAL REVIEW BEFORE LAUNCH (see the checklist in ../datenschutz.html):
-  1. Enter the controller's address (placeholder).
-  2. MonsterASP.NET: verify full company name, address and server location; conclude a DPA (Art. 28 GDPR); ask for the server-log retention period.
-  3. E-mail service provider: enter name, registered office, third-country link and DPA; disable open/click tracking.
-  4. Cloudflare R2: keep only if object storage is enabled; confirm EU jurisdiction.
-  5. Support mailbox (Gmail): check/enter the use of Google; consider a business mailbox with a DPA.
-  6. Data protection officer: check the obligation under § 38 BDSG.
-  7. Finalise retention periods (e-mail dispatch logs, audit log, backups).
-  8. Add the payment provider once online payment is enabled; likewise push notifications, if introduced.
-  9. Reconcile with actual production operation (configuration, hosting region) before publication.
+  LEGAL REVIEW BEFORE LAUNCH: see the checklist and the sources in ../datenschutz.html.
 -->
 <head>
 <meta charset="utf-8">
@@ -113,7 +104,7 @@
   <div class="wrap">
     <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="./">Home</a></li><li aria-current="page">Privacy policy</li></ol></nav>
     <h1>Privacy policy</h1>
-    <p class="meta">for the AngebotPilot website, web app and mobile apps · Last updated: 13 October 2026</p>
+    <p class="meta">for the AngebotPilot website, web app and mobile apps · Last updated: 2 November 2026</p>
   </div>
 </div>
 <div class="wrap doc-layout">
@@ -152,11 +143,11 @@
     <p>The controller within the meaning of the General Data Protection Regulation (GDPR) is:</p>
     <address>
       Medin Turkes · Certi Development<br>
-      <mark class="ph">[PLACEHOLDER: street and house number, postcode and town]</mark><br>
+      <mark class="ph">[PLATZHALTER: street and house number, postcode and town]</mark><br>
       Germany<br>
       E-mail: <a href="mailto:certidevelopment@gmail.com">certidevelopment@gmail.com</a>
     </address>
-    <p>No data protection officer has been appointed, as in our assessment there is no legal obligation to do so (Art.&nbsp;37 GDPR, §&nbsp;38 BDSG, the German Federal Data Protection Act). <mark class="ph">[to be checked]</mark> If you have any questions about data protection, please contact us at the e-mail address above.</p>
+    <p>No data protection officer has been appointed, as in our assessment there is no legal obligation to do so (Art.&nbsp;37 GDPR, §&nbsp;38 BDSG, the German Federal Data Protection Act): fewer than 20 persons are permanently engaged in processing personal data, and our core activities do not consist of large-scale monitoring or of processing special categories of personal data. If you have any questions about data protection, please contact us at the e-mail address above.</p>
 
     <h2 id="roles">3. Controller or processor?</h2>
     <p>There are two roles at AngebotPilot:</p>
@@ -207,10 +198,10 @@
     <p>In the app, we notify you of events such as the acceptance or rejection of a quotation. You can export customers, quotations, jobs and invoices as a CSV file at any time.</p>
 
     <h3>5.8 Server logs at the hosting provider</h3>
-    <p>When our application servers (API) are accessed, our hosting provider processes technically necessary connection data, in particular IP address, time, address requested, status code and browser or app identifier. This data is needed for secure operation, for error analysis and to fend off attacks (Art.&nbsp;6(1)(f) GDPR) and is stored only for a short time: <mark class="ph">[PLACEHOLDER: retention period according to hosting provider]</mark>. We do not store IP addresses in our application database.</p>
+    <p>When our application servers (API) are accessed, our hosting provider processes technically necessary connection data, in particular IP address, time, address requested, status code and browser or app identifier. This data is needed for secure operation, for error analysis and to fend off attacks (Art.&nbsp;6(1)(f) GDPR) and, according to the hosting provider’s <a href="https://www.monsterasp.net/Privacy/">privacy policy</a>, is stored for no more than 6&nbsp;months, security and intrusion-detection logs for no more than 12&nbsp;months. We do not store IP addresses in our application database.</p>
 
     <h3>5.9 Payment processing</h3>
-    <p>During the pilot phase, no charges are made and no payment service provider is used. <mark class="ph">[to be added once online payment is enabled]</mark></p>
+    <p>During the pilot phase, no charges are made and no payment service provider is used. Before we introduce online payment, we will update this policy.</p>
 
     <h2 id="customer-page">6. Customer link and online acceptance</h2>
     <p>When a user sends a quotation, the recipient receives a personal link to view it online. In this context, we process the following as a processor on behalf of the respective business:</p>
@@ -230,7 +221,7 @@
       <li><strong>No advertising, no analytics:</strong> The apps contain no advertising or analytics SDKs and do not use an advertising ID.</li>
       <li><strong>App stores:</strong> When you download the apps via Google Play (Google Ireland Limited) or the App Store (Apple Distribution International Ltd.), these providers process data under their own responsibility, such as your account and device data. We have no influence over this.</li>
     </ul>
-    <p><mark class="ph">[to be added if push notifications or further permissions are introduced]</mark></p>
+    <p>The apps do not use push notifications and request no permissions requiring your approval other than the camera; to connect to the server they only use the internet and network-state permissions (Android).</p>
 
     <h2 id="contact">8. Contact and support</h2>
     <p>If you contact us by e-mail, we process your e-mail address, your name and the content of your message in order to answer your enquiry. The legal basis is Art.&nbsp;6(1)(b) GDPR if your enquiry relates to a contract, otherwise our legitimate interest in answering it (Art.&nbsp;6(1)(f) GDPR). Our support mailbox is operated by Google (Gmail), see section 9.</p>
@@ -241,30 +232,29 @@
       <table class="stack">
         <thead><tr><th scope="col">Service provider</th><th scope="col">Purpose</th><th scope="col">Location</th></tr></thead>
         <tbody>
-          <tr><th scope="row">MonsterASP.NET <mark class="ph">[PLACEHOLDER: full company name and address]</mark></th><td data-label="Purpose">Hosting of the application servers (API) and the SQL Server database, backups</td><td data-label="Location">Germany/EU <mark class="ph">[to be checked: conclude DPA with provider]</mark></td></tr>
+          <tr><th scope="row">MonsterASP.NET s.r.o., Jičínská 226/17, 130 00 Prague, Czech Republic</th><td data-label="Purpose">Hosting of the application servers (API), the SQL Server database and the file storage (logos, PDF documents), backups</td><td data-label="Location">EU (data centres in Germany or Finland); processing under Art.&nbsp;28 GDPR according to the <a href="https://www.monsterasp.net/Terms/">provider’s terms</a> (clause&nbsp;8.2)</td></tr>
           <tr><th scope="row">GitHub, Inc.</th><td data-label="Purpose">Provision of this website and the files of the web app (GitHub Pages)</td><td data-label="Location">USA – EU-US Data Privacy Framework</td></tr>
-          <tr><th scope="row">netcup GmbH, Karlsruhe (e-mail hosting/mail server)</th><td data-label="Purpose">Sending system e-mails, quotations and reminders</td><td data-label="Location">Germany <mark class="ph">[to be checked: conclude DPA with netcup]</mark></td></tr>
-          <tr><th scope="row">Cloudflare, Inc. (R2) <mark class="ph">[only if enabled]</mark></th><td data-label="Purpose">Private object storage for logos and PDF documents</td><td data-label="Location"><mark class="ph">[add storage location, e.g. EU jurisdiction]</mark> – EU-US Data Privacy Framework</td></tr>
+          <tr><th scope="row">netcup GmbH, Emmy-Noether-Straße 10, 76131 Karlsruhe, Germany (e-mail hosting/mail server)</th><td data-label="Purpose">Sending system e-mails, quotations and reminders</td><td data-label="Location">Germany</td></tr>
           <tr><th scope="row">Google Ireland Limited (Gmail)</th><td data-label="Purpose">Support mailbox for e-mail enquiries</td><td data-label="Location">EU/USA – EU-US Data Privacy Framework</td></tr>
           <tr><th scope="row">Google Ireland Limited (Google Play), Apple Distribution International Ltd. (App Store)</th><td data-label="Purpose">Distribution of the mobile apps – under the providers’ own responsibility</td><td data-label="Location">Ireland, possibly USA</td></tr>
-          <tr><th scope="row">Payment service provider</th><td data-label="Purpose">None at present</td><td data-label="Location"><mark class="ph">[to be added once online payment is enabled]</mark></td></tr>
+          <tr><th scope="row">Payment service provider</th><td data-label="Purpose">None at present</td><td data-label="Location">–</td></tr>
         </tbody>
       </table>
     </div>
     <p>Beyond this, we pass on data only if we are legally obliged to do so (Art.&nbsp;6(1)(c) GDPR), for example to authorities when so ordered.</p>
 
     <h2 id="third-countries">10. Transfers to third countries</h2>
-    <p>Where service providers are based in the USA or may transfer data there (GitHub, Google, possibly Cloudflare), this takes place on the basis of the European Commission’s adequacy decision on the EU-US Data Privacy Framework (Art.&nbsp;45 GDPR), provided the provider is certified, and additionally on the basis of EU standard contractual clauses (Art.&nbsp;46(2)(c) GDPR).</p>
+    <p>Where service providers are based in the USA or may transfer data there (GitHub, Google), this takes place on the basis of the European Commission’s adequacy decision on the EU-US Data Privacy Framework (Art.&nbsp;45 GDPR), provided the provider is certified, and additionally on the basis of EU standard contractual clauses (Art.&nbsp;46(2)(c) GDPR).</p>
 
     <h2 id="retention">11. Retention periods</h2>
     <p>We store personal data only for as long as is necessary for the respective purpose or required by legal obligations:</p>
     <ul>
       <li><strong>User account:</strong> until the account is deleted. After that, only a log entry recording the deletion remains, without name or e-mail address.</li>
-      <li><strong>Company data, customers, quotations, jobs, invoices, dispatch logs:</strong> until you delete them or your account or company is deleted. <mark class="ph">[to be checked: consider setting a shorter period for e-mail dispatch logs]</mark></li>
+      <li><strong>Company data, customers, quotations, jobs, invoices, dispatch logs:</strong> until you delete them or your account or company is deleted. The content of an e-mail is deleted as soon as it has been sent (see section 5.5).</li>
       <li><strong>Retention obligations:</strong> Statutory retention obligations may require quotations and related documents to be kept for longer – for example, under §&nbsp;257 HGB (German Commercial Code) and §&nbsp;147 AO (German Fiscal Code), six years for commercial and business letters and up to eight or ten years for accounting-relevant documents. As the user, you assess whether these obligations apply to you. If you delete a customer in AngebotPilot for whom quotations already exist, that customer’s personal data is therefore anonymised rather than deleted, so that the quotations and invoices are preserved. Issued invoices are locked: they cannot be deleted in AngebotPilot, only corrected by means of a cancellation invoice.</li>
       <li><strong>Refresh tokens:</strong> until expiry (no more than 30 days) or revocation; one-time links for e-mail confirmation and password reset until expiry or use.</li>
       <li><strong>Server logs:</strong> in accordance with the hosting provider’s retention periods (see section 5.8).</li>
-      <li><strong>Backups:</strong> Deleted data may remain in the hosting provider’s backups until they are routinely overwritten: <mark class="ph">[PLACEHOLDER: backup retention period]</mark>.</li>
+      <li><strong>Backups:</strong> Deleted data may remain in the hosting provider’s backups; these are created daily and deleted after 21&nbsp;days (<a href="https://www.monsterasp.net/Terms/">provider’s terms</a>).</li>
       <li><strong>Support requests:</strong> until they have been fully dealt with, unless a retention obligation applies.</li>
     </ul>
 
@@ -301,7 +291,7 @@
     <p>Providing your name, e-mail address and password is required for registration. Without this data, we cannot provide you with an account. Any further information is voluntary, but in some cases necessary for creating proper quotations.</p>
     <h3>Changes to this privacy policy</h3>
     <p>We update this privacy policy when AngebotPilot or the legal situation changes. The version published here at any given time applies. We also inform registered users of material changes by e-mail or in the app.</p>
-    <p class="muted-sm">Last updated: 13 October 2026</p>
+    <p class="muted-sm">Last updated: 2 November 2026</p>
   </article>
 </div>
 </main>

@@ -5,9 +5,9 @@
   Keep this file in sync with the German original (same sections, same placeholders, same "Last updated" date).
   LEGAL REVIEW BEFORE LAUNCH – DPA (template), mirrors the checklist in ../avv.html:
   1. Have the entire agreement reviewed by a lawyer (Art. 28(3) GDPR).
-  2. Add the processor's address; define how the agreement is concluded (e.g. electronically on registration, download as PDF).
-  3. Reconcile the sub-processors (Annex 2) with production: MonsterASP.NET (company, address, location, DPA), e-mail service provider, Cloudflare R2 (only if active).
-  4. Reconcile the TOMs (Annex 1) with the actual implementation, in particular backups and deletion periods at the hosting provider.
+  2. Add the processor's address ([PLATZHALTER: …]). Conclusion: electronically by accepting the terms at registration (implemented).
+  3. Sub-processors reconciled with production on 2 Nov 2026 (Storage:Provider=Local, e-mail via netcup SMTP, no R2); sources in ../datenschutz.html.
+  4. MonsterASP backups (daily, 21 days) and the host's DPA apply to paid plans only – upgrade to Premium before production use.
   5. Finalise the time limits (notification of breaches, deletion after the end of the agreement).
 -->
 <head>
@@ -109,7 +109,7 @@
   <div class="wrap">
     <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="./">Home</a></li><li aria-current="page">Data processing agreement</li></ol></nav>
     <h1>Data processing agreement</h1>
-    <p class="meta">pursuant to Art.&nbsp;28 GDPR for the use of AngebotPilot · Last updated: 12 October 2026</p>
+    <p class="meta">pursuant to Art.&nbsp;28 GDPR for the use of AngebotPilot · Last updated: 2 November 2026</p>
     <div class="notice" role="note"><svg aria-hidden="true" focusable="false"><use href="../assets/icons.svg#i-alert"/></svg><p><strong>Template – have it legally reviewed before use.</strong> This contract text is a draft and has not yet undergone a final legal review.</p></div>
   </div>
 </div>
@@ -140,14 +140,14 @@
     <div class="cards-2">
       <div>
         <h3>Controller (client)</h3>
-        <p>the user of AngebotPilot as specified in the company profile<br><mark class="ph">[PLACEHOLDER: company name, address]</mark></p>
+        <p>the user of AngebotPilot as specified in the company profile (company name, address)</p>
       </div>
       <div>
         <h3>Processor (contractor)</h3>
-        <p>Medin Turkes · Certi Development<br><mark class="ph">[PLACEHOLDER: street and house number, postcode and town]</mark><br>Germany<br><a href="mailto:certidevelopment@gmail.com">certidevelopment@gmail.com</a></p>
+        <p>Medin Turkes · Certi Development<br><mark class="ph">[PLATZHALTER: street and house number, postcode and town]</mark><br>Germany<br><a href="mailto:certidevelopment@gmail.com">certidevelopment@gmail.com</a></p>
       </div>
     </div>
-    <p>This agreement sets out in detail the data protection obligations of the parties arising from the use of AngebotPilot under the <a href="terms.html">Terms</a> (main agreement). <mark class="ph">[PLACEHOLDER: method of conclusion, e.g. “The agreement is concluded electronically upon registration.”]</mark></p>
+    <p>This agreement sets out in detail the data protection obligations of the parties arising from the use of AngebotPilot under the <a href="terms.html">Terms</a> (main agreement). The agreement is concluded electronically upon registration when the controller accepts the terms, which incorporate this agreement; it is therefore in electronic form (Art.&nbsp;28(9) GDPR).</p>
 
     <h2 id="s1">§&nbsp;1 Subject matter and term</h2>
     <ol>
@@ -180,7 +180,7 @@
     <h2 id="s6">§&nbsp;6 Sub-processors</h2>
     <ol>
       <li>The controller authorises the use of the sub-processors listed in Annex 2.</li>
-      <li>The processor informs the controller in text form of any intended addition or replacement of a sub-processor at least <mark class="ph">[PLACEHOLDER: notice period, e.g. 4 weeks]</mark> in advance. The controller may object for good cause relating to data protection; if no agreement is reached, the controller may terminate the main agreement extraordinarily (for cause).</li>
+      <li>The processor informs the controller in text form of any intended addition or replacement of a sub-processor at least <mark class="ph">[PLATZHALTER: notice period, e.g. 4 weeks]</mark> in advance. The controller may object for good cause relating to data protection; if no agreement is reached, the controller may terminate the main agreement extraordinarily (for cause).</li>
       <li>The processor contractually binds sub-processors to a level of data protection that corresponds to this agreement.</li>
     </ol>
 
@@ -200,7 +200,7 @@
     <h2 id="s10">§&nbsp;10 Deletion and return</h2>
     <ol>
       <li>The controller can export (CSV) and delete its data itself at any time during the term of the agreement.</li>
-      <li>After the end of the provision of services, the processor deletes the controller’s data within <mark class="ph">[PLACEHOLDER: period, e.g. 30 days]</mark>, unless Union law or German law requires the data to be stored. Data in backups is overwritten as part of the regular backup cycle <mark class="ph">[PLACEHOLDER: duration]</mark>.</li>
+      <li>After the end of the provision of services, the processor deletes the controller’s data within <mark class="ph">[PLATZHALTER: period, e.g. 30 days]</mark>, unless Union law or German law requires the data to be stored. Data in backups is overwritten as part of the regular backup cycle, no later than after 21&nbsp;days.</li>
       <li>Deletion is confirmed in text form on request.</li>
     </ol>
 
@@ -224,7 +224,7 @@
           <tr><th scope="row">Confidentiality – data access</th><td data-label="Measures">Strict tenant separation (every query is restricted to the user’s company); role-based permissions (owner, admin, staff); customer links with a random token stored only in hashed form, time-limited and revocable; private object storage without public addresses, server-generated file keys.</td></tr>
           <tr><th scope="row">Integrity – transfer</th><td data-label="Measures">Encrypted transmission (TLS/HTTPS) between client and server and to service providers; e-mails sent via a service provider under a data processing agreement; protection against formula injection in CSV exports.</td></tr>
           <tr><th scope="row">Integrity – input</th><td data-label="Measures">Audit log of important actions and history for each quotation with timestamp and acting person; versioning of quotations after sending; checksums for uploaded files.</td></tr>
-          <tr><th scope="row">Availability and resilience</th><td data-label="Measures">Backups at the hosting provider <mark class="ph">[PLACEHOLDER: interval and retention]</mark>; retry logic and idempotency when sending e-mails; quotas against misuse (e.g. e-mails per day).</td></tr>
+          <tr><th scope="row">Availability and resilience</th><td data-label="Measures">daily backups at the hosting provider retained for 21&nbsp;days, plus manual database exports before database schema changes; retry logic and idempotency when sending e-mails; quotas against misuse (e.g. e-mails per day).</td></tr>
           <tr><th scope="row">Separation principle</th><td data-label="Measures">Logical separation of the data of different controllers in the database by means of a company identifier.</td></tr>
           <tr><th scope="row">Review and data protection by design</th><td data-label="Measures">Regular review of the measures; data minimisation (e.g. no storage of IP addresses in the application database, no tracking pixels).</td></tr>
         </tbody>
@@ -236,19 +236,15 @@
       <table class="stack">
         <thead><tr><th scope="col">Company</th><th scope="col">Service</th><th scope="col">Location / safeguards</th></tr></thead>
         <tbody>
-          <tr><th scope="row">MonsterASP.NET <mark class="ph">[PLACEHOLDER: full company name and address]</mark></th><td data-label="Service">Hosting of the application servers and the SQL Server database, backups</td><td data-label="Location / safeguards">Germany/EU <mark class="ph">[to be checked: conclude a DPA with the provider]</mark></td></tr>
-          <tr><th scope="row">netcup GmbH, Karlsruhe, Germany (e-mail hosting/mail server) <mark class="ph">[to be checked: address and DPA]</mark></th><td data-label="Service">Sending of quotations, reminders and system e-mails</td><td data-label="Location / safeguards"><mark class="ph">[to be added]</mark></td></tr>
-          <tr><th scope="row">Cloudflare, Inc. – R2 <mark class="ph">[only if enabled]</mark></th><td data-label="Service">Private object storage for logos and PDF documents</td><td data-label="Location / safeguards"><mark class="ph">[add storage location]</mark>; EU-US Data Privacy Framework, Standard Contractual Clauses</td></tr>
+          <tr><th scope="row">MonsterASP.NET s.r.o., Jičínská 226/17, 130 00 Prague, Czech Republic</th><td data-label="Service">Hosting of the application servers, the SQL Server database and the file storage (logos, PDF documents), backups</td><td data-label="Location / safeguards">EU (Hetzner Online GmbH data centres in Germany or Finland); DPA under Art.&nbsp;28 GDPR per clause&nbsp;8.2 of the provider’s terms</td></tr>
+          <tr><th scope="row">netcup GmbH, Emmy-Noether-Straße 10, 76131 Karlsruhe, Germany (e-mail hosting/mail server)</th><td data-label="Service">Sending of quotations, reminders and system e-mails</td><td data-label="Location / safeguards">Germany</td></tr>
         </tbody>
       </table>
     </div>
     <p>GitHub Pages merely serves the program files of the web app and does not process any content from AngebotPilot; GitHub is therefore not a sub-processor for the data listed in §&nbsp;2.</p>
 
-    <h2>Signatures</h2>
-    <div class="cards-2">
-      <div><p>Place, date: <mark class="ph">[PLACEHOLDER]</mark></p><p>Controller: <mark class="ph">[PLACEHOLDER: name, position]</mark></p></div>
-      <div><p>Place, date: <mark class="ph">[PLACEHOLDER]</mark></p><p>Processor: Medin Turkes</p></div>
-    </div>
+    <h2>Conclusion of the agreement</h2>
+    <p>This agreement does not require a signature. It is concluded electronically when the controller accepts the <a href="terms.html">terms</a> at registration (see preamble).</p>
   </article>
 </div>
 </main>

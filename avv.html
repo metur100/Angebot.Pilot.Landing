@@ -3,9 +3,9 @@
 <!--
   RECHTLICHE PRÜFUNG VOR LAUNCH – AVV (Muster)
   1. Gesamten Vertrag anwaltlich prüfen lassen (Art. 28 Abs. 3 DSGVO).
-  2. Anschrift des Auftragsverarbeiters eintragen; Abschlussmechanismus festlegen (z. B. elektronisch bei Registrierung, Download als PDF).
-  3. Unterauftragsverarbeiter (Anlage 2) mit dem Produktivbetrieb abgleichen: MonsterASP.NET (Firma, Anschrift, Standort, AVV), E-Mail-Dienstleister, Cloudflare R2 (nur falls aktiv).
-  4. TOM (Anlage 1) mit tatsächlicher Umsetzung abgleichen, insbesondere Backups und Löschfristen beim Hoster.
+  2. Anschrift des Auftragsverarbeiters eintragen ([PLATZHALTER: …]). Abschluss: elektronisch mit Zustimmung zu den AGB bei der Registrierung (umgesetzt).
+  3. Unterauftragsverarbeiter abgeglichen am 02.11.2026 (Storage:Provider=Local, E-Mail über netcup-SMTP, kein R2); Quellen siehe datenschutz.html.
+  4. MonsterASP-Backups (täglich, 21 Tage) und der AVV des Hosters gelten nur für kostenpflichtige Tarife – vor dem Produktivbetrieb auf Premium wechseln.
   5. Fristen (Meldung von Verletzungen, Löschung nach Vertragsende) final festlegen.
 -->
 <head>
@@ -107,7 +107,7 @@
   <div class="wrap">
     <nav class="breadcrumb" aria-label="Brotkrümelnavigation"><ol><li><a href="./">Startseite</a></li><li aria-current="page">Auftragsverarbeitung (AVV)</li></ol></nav>
     <h1>Auftrags&shy;verarbeitungs&shy;vertrag</h1>
-    <p class="meta">gemäß Art.&nbsp;28 DSGVO für die Nutzung von AngebotPilot · Stand: 12.10.2026</p>
+    <p class="meta">gemäß Art.&nbsp;28 DSGVO für die Nutzung von AngebotPilot · Stand: 02.11.2026</p>
     <div class="notice" role="note"><svg aria-hidden="true" focusable="false"><use href="assets/icons.svg#i-alert"/></svg><p><strong>Muster – vor Verwendung rechtlich prüfen lassen.</strong> Dieser Vertragstext ist ein Entwurf und noch nicht abschließend juristisch geprüft.</p></div>
   </div>
 </div>
@@ -137,14 +137,14 @@
     <div class="cards-2">
       <div>
         <h3>Verantwortlicher (Auftraggeber)</h3>
-        <p>der Nutzer von AngebotPilot gemäß den Angaben im Firmenprofil<br><mark class="ph">[PLATZHALTER: Firma, Anschrift]</mark></p>
+        <p>der Nutzer von AngebotPilot gemäß den Angaben im Firmenprofil (Firma, Anschrift)</p>
       </div>
       <div>
         <h3>Auftragsverarbeiter (Auftragnehmer)</h3>
         <p>Medin Turkes · Certi Development<br><mark class="ph">[PLATZHALTER: Straße Hausnummer, PLZ Ort]</mark><br>Deutschland<br><a href="mailto:certidevelopment@gmail.com">certidevelopment@gmail.com</a></p>
       </div>
     </div>
-    <p>Dieser Vertrag konkretisiert die datenschutzrechtlichen Pflichten der Parteien, die sich aus der Nutzung von AngebotPilot nach den <a href="agb.html">AGB</a> (Hauptvertrag) ergeben. <mark class="ph">[PLATZHALTER: Abschlussweg, z. B. „Der Vertrag wird mit der Registrierung elektronisch geschlossen.“]</mark></p>
+    <p>Dieser Vertrag konkretisiert die datenschutzrechtlichen Pflichten der Parteien, die sich aus der Nutzung von AngebotPilot nach den <a href="agb.html">AGB</a> (Hauptvertrag) ergeben. Der Vertrag wird mit der Registrierung elektronisch geschlossen, indem der Auftraggeber den AGB zustimmt, die diesen Vertrag einbeziehen; er ist damit in einem elektronischen Format abgefasst (Art.&nbsp;28 Abs.&nbsp;9 DSGVO).</p>
 
     <h2 id="a1">§&nbsp;1 Gegenstand und Dauer</h2>
     <ol>
@@ -197,7 +197,7 @@
     <h2 id="a10">§&nbsp;10 Löschung und Rückgabe</h2>
     <ol>
       <li>Der Auftraggeber kann seine Daten während der Vertragslaufzeit jederzeit selbst exportieren (CSV) und löschen.</li>
-      <li>Nach Ende der Leistungserbringung löscht der Auftragnehmer die Daten des Auftraggebers innerhalb von <mark class="ph">[PLATZHALTER: Frist, z. B. 30 Tagen]</mark>, sofern nicht nach Unionsrecht oder deutschem Recht eine Pflicht zur Speicherung besteht. Daten in Datensicherungen werden im Rahmen des regulären Sicherungszyklus überschrieben <mark class="ph">[PLATZHALTER: Dauer]</mark>.</li>
+      <li>Nach Ende der Leistungserbringung löscht der Auftragnehmer die Daten des Auftraggebers innerhalb von <mark class="ph">[PLATZHALTER: Frist, z. B. 30 Tagen]</mark>, sofern nicht nach Unionsrecht oder deutschem Recht eine Pflicht zur Speicherung besteht. Daten in Datensicherungen werden im Rahmen des regulären Sicherungszyklus gelöscht, spätestens nach 21&nbsp;Tagen.</li>
       <li>Die Löschung wird auf Anfrage in Textform bestätigt.</li>
     </ol>
 
@@ -221,7 +221,7 @@
           <tr><th scope="row">Vertraulichkeit – Zugriff</th><td data-label="Maßnahmen">Strikte Mandantentrennung (jede Abfrage ist auf die Firma des Nutzers beschränkt); rollenbasierte Rechte (Inhaber, Admin, Mitarbeitende); Kundenlinks mit zufälligem, nur gehasht gespeichertem Token, befristet und widerrufbar; privater Objektspeicher ohne öffentliche Adressen, serverseitig erzeugte Dateischlüssel.</td></tr>
           <tr><th scope="row">Integrität – Weitergabe</th><td data-label="Maßnahmen">Verschlüsselte Übertragung (TLS/HTTPS) zwischen Client und Server sowie zu Dienstleistern; E-Mail-Versand über einen Dienstleister mit Auftragsverarbeitungsvertrag; Schutz vor Formel-Injektion beim CSV-Export.</td></tr>
           <tr><th scope="row">Integrität – Eingabe</th><td data-label="Maßnahmen">Audit-Log wichtiger Aktionen und Verlauf je Angebot mit Zeitpunkt und handelnder Person; Versionierung von Angeboten nach dem Versand; Prüfsummen für hochgeladene Dateien.</td></tr>
-          <tr><th scope="row">Verfügbarkeit und Belastbarkeit</th><td data-label="Maßnahmen">Datensicherungen beim Hosting-Anbieter <mark class="ph">[PLATZHALTER: Intervall und Aufbewahrung]</mark>; Wiederholungslogik und Idempotenz beim E-Mail-Versand; Kontingente gegen Missbrauch (z. B. E-Mails pro Tag).</td></tr>
+          <tr><th scope="row">Verfügbarkeit und Belastbarkeit</th><td data-label="Maßnahmen">tägliche Datensicherungen beim Hosting-Anbieter mit einer Aufbewahrung von 21&nbsp;Tagen sowie manuelle Datenbankexporte vor Änderungen am Datenbankschema; Wiederholungslogik und Idempotenz beim E-Mail-Versand; Kontingente gegen Missbrauch (z. B. E-Mails pro Tag).</td></tr>
           <tr><th scope="row">Trennungsgebot</th><td data-label="Maßnahmen">Logische Trennung der Daten verschiedener Auftraggeber in der Datenbank über eine Firmenkennung.</td></tr>
           <tr><th scope="row">Überprüfung und Datenschutz durch Technikgestaltung</th><td data-label="Maßnahmen">Regelmäßige Überprüfung der Maßnahmen; Datensparsamkeit (z. B. keine Speicherung von IP-Adressen in der Anwendungsdatenbank, keine Tracking-Pixel).</td></tr>
         </tbody>
@@ -233,19 +233,15 @@
       <table class="stack">
         <thead><tr><th scope="col">Unternehmen</th><th scope="col">Leistung</th><th scope="col">Ort / Garantien</th></tr></thead>
         <tbody>
-          <tr><th scope="row">MonsterASP.NET <mark class="ph">[PLATZHALTER: vollständiger Firmenname und Anschrift]</mark></th><td data-label="Leistung">Hosting der Anwendungsserver und der SQL-Server-Datenbank, Datensicherungen</td><td data-label="Ort / Garantien">Deutschland/EU <mark class="ph">[zu prüfen: AVV mit Anbieter abschließen]</mark></td></tr>
-          <tr><th scope="row">netcup GmbH, Karlsruhe, Deutschland (E-Mail-Hosting/Mailserver) <mark class="ph">[zu prüfen: Anschrift und AVV]</mark></th><td data-label="Leistung">Versand von Angeboten, Erinnerungen und System-E-Mails</td><td data-label="Ort / Garantien"><mark class="ph">[ergänzen]</mark></td></tr>
-          <tr><th scope="row">Cloudflare, Inc. – R2 <mark class="ph">[nur falls aktiviert]</mark></th><td data-label="Leistung">Privater Objektspeicher für Logos und PDF-Dokumente</td><td data-label="Ort / Garantien"><mark class="ph">[Speicherort ergänzen]</mark>; EU-US Data Privacy Framework, Standardvertragsklauseln</td></tr>
+          <tr><th scope="row">MonsterASP.NET s.r.o., Jičínská 226/17, 130 00 Prag, Tschechien</th><td data-label="Leistung">Hosting der Anwendungsserver, der SQL-Server-Datenbank und des Dateispeichers (Logos, PDF-Dokumente), Datensicherungen</td><td data-label="Ort / Garantien">EU (Rechenzentren der Hetzner Online GmbH in Deutschland bzw. Finnland); AVV nach Art.&nbsp;28 DSGVO gemäß Ziff.&nbsp;8.2 der Nutzungsbedingungen des Anbieters</td></tr>
+          <tr><th scope="row">netcup GmbH, Emmy-Noether-Straße 10, 76131 Karlsruhe, Deutschland (E-Mail-Hosting/Mailserver)</th><td data-label="Leistung">Versand von Angeboten, Erinnerungen und System-E-Mails</td><td data-label="Ort / Garantien">Deutschland</td></tr>
         </tbody>
       </table>
     </div>
     <p>GitHub Pages stellt lediglich die Programmdateien der Web-App bereit und verarbeitet keine Inhalte aus AngebotPilot; GitHub ist daher kein Unterauftragsverarbeiter für die in §&nbsp;2 genannten Daten.</p>
 
-    <h2>Unterschriften</h2>
-    <div class="cards-2">
-      <div><p>Ort, Datum: <mark class="ph">[PLATZHALTER]</mark></p><p>Auftraggeber: <mark class="ph">[PLATZHALTER: Name, Funktion]</mark></p></div>
-      <div><p>Ort, Datum: <mark class="ph">[PLATZHALTER]</mark></p><p>Auftragnehmer: Medin Turkes</p></div>
-    </div>
+    <h2>Vertragsschluss</h2>
+    <p>Dieser Vertrag bedarf keiner Unterschrift. Er wird elektronisch geschlossen, wenn der Auftraggeber bei der Registrierung den <a href="agb.html">AGB</a> zustimmt (siehe Präambel).</p>
   </article>
 </div>
 </main>
